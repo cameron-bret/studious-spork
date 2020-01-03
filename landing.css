@@ -13,7 +13,11 @@ nav {
 .hero {
   text-align: center;
   background-color: var(--bg-color);
-  padding: 2rem 0 10rem 0;
+  padding: 2rem 0rem 2rem 0rem;
+}
+
+#heroSize {
+  padding: 0px 54px 0px 54px;
 }
 
 .hero__title {

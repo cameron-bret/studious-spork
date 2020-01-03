@@ -120,7 +120,7 @@ window.addEventListener('scroll', function () {
   var docNav = get('.doc__nav > ul');
 
   if( docNav) {
-    if (window.pageYOffset > 63) {
+    if (window.pageYOffset > 13) {
       docNav.classList.add('fixed');
     } else {
       docNav.classList.remove('fixed');

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Pet Power Radio</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body>
+
+<div class="container">
+  <h2>We look forward to hearing from you!</h2>
+  <p>Pet Power Radio offers a wide array of services to provide your store, staff, and customers with positive, uplifting music; as well as audio recording and production. We are consistently extending special promotions to give you the best value in your store's programing. Through our partnerships with many of the nation's leading pet product manufacturers, our customer service specialists can construct your very own radio station to meet your needs! Help us determine what is right for you by calling one of our support specialists, at 1-888-864-1232, or by filling in your information below. We look forward to bringing you your very own Pet Power Radio station!</p>
+  <form class="form-horizontal recaptchaForm" method="post">
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="email">Email:</label>
+      <div class="col-sm-10">
+        <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="pwd">Password:</label>
+      <div class="col-sm-10">          
+        <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <div class="g-recaptcha" data-sitekey="your_site_key"></div>
+      </div>
+    </div>
+    <div class="form-group">        
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" class="btn btn-default">Submit</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<script>
+$(document).ready(function(){
+$(".recaptchaForm").on('submit',function(event){
+
+var recaptcha = $("#g-recaptcha-response").val();
+if (recaptcha===""){
+event.preventDefault();
+alert("Please Cheack Recaptcha");
+}
+event.preventDefault();
+
+$.post("submit.php",{
+  "secret":"6Lc2DcwUAAAAACxlHYbyUGyGoBJ3fB8q6e0QLmWF",
+  "response":recaptcha
+  },function(response){
+    console.log(response);
+  )};
+
+}
+});
+</script>
+
+</body>
+</html>
